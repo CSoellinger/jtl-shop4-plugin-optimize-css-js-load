@@ -18,9 +18,9 @@ class pclcHelper
      * @var null|Plugin Plugin instance
      */
     private $plugin = null;
-    
+
     /**
-     * @var null|Smarty Smarty instance
+     * @var null|JTLSmarty Smarty instance
      */
     private $smarty = null;
     
@@ -29,7 +29,7 @@ class pclcHelper
      *
      * @param Plugin $oPlugin
      */
-    public function __construct(Plugin $oPlugin, $smarty)
+    public function __construct(Plugin $oPlugin, JTLSmarty $smarty)
     {
         $this->plugin = $oPlugin;
         $this->smarty = $smarty;
@@ -41,7 +41,7 @@ class pclcHelper
      * @param Plugin $oPlugin
      * @return pclcHelper
      */
-    public static function getInstance(Plugin $oPlugin, $smarty)
+    public static function getInstance(Plugin $oPlugin, JTLSmarty $smarty)
     {
         return (self::$_instance === null) ? new self($oPlugin, $smarty) : self::$_instance;
     }
@@ -49,7 +49,7 @@ class pclcHelper
     /**
      * Replace all CSS sheet references with rel="preload" and add LoadCSS as polyfill fallback.
      *
-     * @return pclcHelper
+     * @return pclcHelper $this
      */
     public function insertLoadCss()
     {
@@ -78,7 +78,7 @@ class pclcHelper
     /**
      * Insert critical css, extracted from default evo template, into head.
      *
-     * @return pclcHelper
+     * @return pclcHelper $this
      */
     public function insertCriticalCss()
     {
