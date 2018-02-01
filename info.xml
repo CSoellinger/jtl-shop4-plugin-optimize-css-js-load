@@ -10,7 +10,7 @@
 	<Icon>preview.png</Icon>
 	<Install>
 		<Version nr="100">
-			<CreateDate>2018-01-30</CreateDate>
+			<CreateDate>2018-02-01</CreateDate>
 		</Version>
 		<Hooks>
 			<Hook id="140">pclc_140_smarty_outputfilter.php</Hook>
