@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding="ISO-8859-1"?>
+<jtlshop3plugin>
+	<Name>PixelCrab LoadCSS</Name>
+	<Description>Verwenden Sie LoadCSS und CriticalCSS um ein besserers PageSpeed Ranking zu erhalten.</Description>
+	<Author>Christopher Söllinger</Author>
+	<URL>https://github.com/CSoellinger/jtl-shop4-plugin-loadcss</URL>
+	<PluginID>pixelcrab_loadcss</PluginID>
+	<XMLVersion>100</XMLVersion>
+	<Shop4Version>400</Shop4Version>
+	<Icon>preview.png</Icon>
+	<Install>
+		<Version nr="100">
+			<CreateDate>2018-01-30</CreateDate>
+		</Version>
+		<Hooks>
+			<Hook id="140">pclc_140_smarty_outputfilter.php</Hook>
+		</Hooks>
+		<Adminmenu>
+			<Settingslink sort="2">
+				<Name>Einstellungen</Name>
+				<Setting type="checkbox" initialValue="" sort="1" conf="Y">
+					<Name>Lade CriticalCSS von EVO</Name>
+					<Description>Damit die wichtigsten CSS Klassen bereits beim Öffnen der Seite vorhanden sind fügen wir ohne Farben alle vom Evo extrahierten CriticalCSS Pfade.</Description>
+					<ValueName>pclc_use_criticalcss</ValueName>
+				</Setting>
+				<Setting type="checkbox" initialValue="" sort="2" conf="Y">
+					<Name>Verwende LoadCSS für vorhandene Stylesheets</Name>
+					<Description>Ersetzte vorhande Stylesheets mit rel="preload" und verwende loadCss als Fallback für ältere Browser.</Description>
+					<ValueName>pclc_use_loadcss</ValueName>
+				</Setting>
+			</Settingslink>
+		</Adminmenu>
+	</Install>
+</jtlshop3plugin>

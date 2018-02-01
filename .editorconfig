@@ -1,0 +1,23 @@
+[*.js]
+indent_size = 2
+quote_type = single
+
+[*.php]
+indent_size = 4
+quote_type = single
+
+[*.json]
+indent_size = 2
+quote_type = double
+
+[*.{css,scss,sass,less}]
+indent_size = 2
+quote_type = double
+
+[*.xml]
+indent_size = 4
+quote_type = double
+
+[*.tpl ]
+indent_size = 4
+quote_type = double

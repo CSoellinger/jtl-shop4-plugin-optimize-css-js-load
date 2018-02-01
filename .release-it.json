@@ -1,0 +1,9 @@
+{
+  "github": {
+    "release": false,
+    "assets": "./*.zip"
+  },
+  "npm": {
+    "publish": false
+  }
+}

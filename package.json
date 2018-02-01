@@ -1,0 +1,31 @@
+{
+  "name": "jtl-shop4-plugin-pixelcrab-loadcss",
+  "version": "0.0.1",
+  "repository": "git@github.com:CSoellinger/jtl-shop4-plugin-loadcss.git",
+  "author": "CSoellinger <cs@pixelcrab.at>",
+  "license": "MIT",
+  "devDependencies": {
+    "copy": "^0.3.1",
+    "del": "^3.0.0",
+    "find": "^0.2.9",
+    "fs-extra": "^5.0.0",
+    "release-it": "^6.1.1",
+    "sass": "^1.0.0-beta.4",
+    "semver": "^5.5.0",
+    "shelljs": "^0.8.1",
+    "xml2js": "^0.4.19",
+    "yargs": "^11.0.0"
+  },
+  "scripts": {
+    "zip-pkg": "node ./.scripts/plugin-pkg-helper.js --zip-pkg",
+    "zip-next-test": "npm run create-version && npm run zip-pkg && npm run remove-last-version",
+    "create-zip": "npm run zip-pkg",
+    "create-version": "npm run create-version-patch",
+    "create-version-patch": "node ./.scripts/plugin-pkg-helper.js --create-version=patch",
+    "create-version-minor": "node ./.scripts/plugin-pkg-helper.js --create-version=minor",
+    "create-version-major": "node ./.scripts/plugin-pkg-helper.js --create-version=major",
+    "remove-last-version": "node ./.scripts/plugin-pkg-helper.js --delete-version",
+    "release": "npm run release-commit",
+    "release-commit": "release-it"
+  }
+}
