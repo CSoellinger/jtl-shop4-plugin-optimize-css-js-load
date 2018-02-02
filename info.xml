@@ -1,34 +1,56 @@
 <?xml version='1.0' encoding="ISO-8859-1"?>
 <jtlshop3plugin>
-	<Name>PixelCrab LoadCSS</Name>
-	<Description>Verwenden Sie LoadCSS und CriticalCSS um ein besserers PageSpeed Ranking zu erhalten.</Description>
-	<Author>Christopher Söllinger</Author>
-	<URL>https://github.com/CSoellinger/jtl-shop4-plugin-loadcss</URL>
-	<PluginID>pixelcrab_loadcss</PluginID>
-	<XMLVersion>100</XMLVersion>
-	<Shop4Version>400</Shop4Version>
-	<Icon>preview.png</Icon>
-	<Install>
-		<Version nr="100">
-			<CreateDate>2018-02-01</CreateDate>
-		</Version>
-		<Hooks>
-			<Hook id="140">pclc_140_smarty_outputfilter.php</Hook>
-		</Hooks>
-		<Adminmenu>
-			<Settingslink sort="2">
-				<Name>Einstellungen</Name>
-				<Setting type="checkbox" initialValue="" sort="1" conf="Y">
-					<Name>Lade CriticalCSS von EVO</Name>
-					<Description>Damit die wichtigsten CSS Klassen bereits beim Öffnen der Seite vorhanden sind fügen wir ohne Farben alle vom Evo extrahierten CriticalCSS Pfade.</Description>
-					<ValueName>pclc_use_criticalcss</ValueName>
-				</Setting>
-				<Setting type="checkbox" initialValue="" sort="2" conf="Y">
-					<Name>Verwende LoadCSS für vorhandene Stylesheets</Name>
-					<Description>Ersetzte vorhande Stylesheets mit rel="preload" und verwende loadCss als Fallback für ältere Browser.</Description>
-					<ValueName>pclc_use_loadcss</ValueName>
-				</Setting>
-			</Settingslink>
-		</Adminmenu>
-	</Install>
+    <Name>PixelCrab Optimize CSS and JS load</Name>
+    <Description>Mit diesem Plugin kann das Laden von CSS und JS Dateien optimieren und so den PageSpeed Rank erhöhen.</Description>
+    <Author>Christopher Söllinger</Author>
+    <URL>https://github.com/CSoellinger/jtl-shop4-plugin-optimize-css-and-js-load</URL>
+    <PluginID>pixelcrab_optimize_css_js_load</PluginID>
+    <XMLVersion>100</XMLVersion>
+    <Shop4Version>400</Shop4Version>
+    <Icon>preview.png</Icon>
+    <Install>
+        <Version nr="100">
+            <CreateDate>2018-02-01</CreateDate>
+        </Version>
+        <Version nr="110">
+            <CreateDate>2018-02-02</CreateDate>
+        </Version>
+        
+        
+        <Hooks>
+            <Hook id="140">pcocjl_140_smarty_outputfilter.php</Hook>
+        </Hooks>
+        <Adminmenu>
+            <Settingslink sort="1">
+                <Name>Einstellungen</Name>
+				<!-- CSS Configuration -->
+                <Setting type="text" initialValue="" sort="10" conf="N">
+                    <Name>CSS</Name>
+                    <ValueName>Spacer</ValueName>
+                    <Description></Description>
+                </Setting>
+                <Setting type="checkbox" initialValue="" sort="11" conf="Y">
+                    <Name>Lade CriticalCSS von EVO</Name>
+                    <Description>Damit die wichtigsten CSS Klassen bereits beim Öffnen der Seite vorhanden sind fügen wir ohne Farben alle vom Evo extrahierten CriticalCSS Pfade.</Description>
+                    <ValueName>pcocjl_use_criticalcss</ValueName>
+                </Setting>
+                <Setting type="checkbox" initialValue="" sort="12" conf="Y">
+                    <Name>Verwende LoadCSS für vorhandene Stylesheets</Name>
+                    <Description>Ersetzte vorhande Stylesheets mit rel="preload" und verwende loadCss als Fallback für ältere Browser.</Description>
+                    <ValueName>pcocjl_use_loadcss</ValueName>
+                </Setting>
+				<!-- JavaScript Configuration -->
+                <Setting type="text" initialValue="" sort="20" conf="N">
+                    <Name>JS</Name>
+                    <ValueName>Spacer</ValueName>
+                    <Description></Description>
+                </Setting>
+                <Setting type="checkbox" initialValue="" sort="21" conf="Y">
+                    <Name>Verschiebe JS an das Ende vom HTML Body</Name>
+                    <Description>Sucht mit PHPQuery alle SCRIPT vorkommen und fügt diese am Ende des BODY HTML Tag ein.</Description>
+                    <ValueName>pcocjl_move_js_to_body</ValueName>
+                </Setting>
+            </Settingslink>
+        </Adminmenu>
+    </Install>
 </jtlshop3plugin>
