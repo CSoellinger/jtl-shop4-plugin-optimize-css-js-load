@@ -1,7 +1,7 @@
 {
-  "name": "jtl-shop4-plugin-loadcss",
+  "name": "jtl-shop4-plugin-optimize-css-js-load",
   "version": "1.0.0",
-  "repository": "git@github.com:CSoellinger/jtl-shop4-plugin-loadcss.git",
+  "repository": "git@github.com:CSoellinger/jtl-shop4-plugin-optimize-css-js-load.git",
   "author": "CSoellinger <cs@pixelcrab.at>",
   "license": "MIT",
   "devDependencies": {
