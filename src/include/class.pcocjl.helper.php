@@ -6,11 +6,11 @@
  * @copyright 2018 PixelCrab
  */
 
-class pclcHelper
+class pcocjlHelper
 {
     
     /**
-     * @var null|pclcHelper Self instance
+     * @var null|pcocjlHelper Self instance
      */
     private static $_instance = null;
     
@@ -39,7 +39,7 @@ class pclcHelper
      * singleton getter
      *
      * @param Plugin $oPlugin
-     * @return pclcHelper
+     * @return pcocjlHelper
      */
     public static function getInstance(Plugin $oPlugin, JTLSmarty $smarty)
     {
@@ -49,11 +49,11 @@ class pclcHelper
     /**
      * Replace all CSS sheet references with rel="preload" and add LoadCSS as polyfill fallback.
      *
-     * @return pclcHelper $this
+     * @return pcocjlHelper $this
      */
     public function insertLoadCss()
     {
-        include_once 'pclc_load-css-polyfill.php';
+        include_once 'pcocjl_load-css-polyfill.php';
         
         // First append LoadCSS polyfill
         pq('head')->append('<script>' . $loadCssPolyfillJs . '</script>');
@@ -78,13 +78,42 @@ class pclcHelper
     /**
      * Insert critical css, extracted from default evo template, into head.
      *
-     * @return pclcHelper $this
+     * @return pcocjlHelper $this
      */
     public function insertCriticalCss()
     {
-        include_once 'pclc_critical-css.php';
+        include_once 'pcocjl_critical-css.php';
 
         pq('head')->prepend('<style>' . $criticalCss . '</style>');
+
+        return $this;
+    }
+
+    /**
+     * Fetch and move JS stuff to the end from BODY HTML tag.
+     *
+     * @return pcocjlHelper $this
+     */
+    public function moveJsToBodyEnd()
+    {
+        // First fetch all scripts from HEAD
+        if (pq('head script')->count() > 0) {
+            $scriptsHead = pq('head script');
+            // and remove them
+            pq('head script')->remove();
+        }
+        
+        // Second fetch all scripts from BODY
+        if (pq('body script')->count() > 0) {
+            $scriptsBody = pq('body script');
+            // and remove them
+            pq('body script')->remove();
+        }
+
+        // At least append them to body so that they are here again
+        pq('body')
+            ->append($scriptsHead)
+            ->append($scriptsBody);
 
         return $this;
     }
@@ -97,7 +126,7 @@ class pclcHelper
      */
     public function getConfig($cfg)
     {
-        return $this->plugin->oPluginEinstellungAssoc_arr['pclc_' . $cfg];
+        return $this->plugin->oPluginEinstellungAssoc_arr['pcocjl_' . $cfg];
     }
 
 }
